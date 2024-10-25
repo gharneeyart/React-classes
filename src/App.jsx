@@ -10,12 +10,14 @@ import FetchData from './hooks/FetchData'
 import NotFoundPage from './pages/404Page'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import { useContext } from 'react'
+import { PageTheme } from './contexts/ThemeContexts'
 
 
 
 
 function App() {
-  
+  const { theme } =useContext(PageTheme)
   
   return (
     <>
@@ -24,6 +26,7 @@ function App() {
      <Products/> */}
       
       {/* Routing pages */}
+      <div className={`bg-${theme} ${theme === "dark" ? "text-light" : "text-dark" } `} >
       <BrowserRouter>
       <Menu/>
       <Routes>
@@ -38,7 +41,8 @@ function App() {
         <Route path="/register" element={<Register/>}/> 
         <Route path="/*" element={<NotFoundPage/>}/> 
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter></div>
+      
     </>
   )
 }

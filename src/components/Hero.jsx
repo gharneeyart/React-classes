@@ -7,7 +7,7 @@ const Hero = (props) => {
   return (
     <div style={{backgroundColor: "purple", color: "white", height: "400px",}}>
         <div className="">
-            <img src={image} alt="" width={350} height={350}/>
+            <img src={image} alt="" width={300} height={350}/>
         </div>
         {/* <h1>Welcome To My World</h1> */}
         <h1>{heading}</h1>

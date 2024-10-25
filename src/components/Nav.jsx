@@ -13,8 +13,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
+import { IoSunny } from "react-icons/io5";
+import { FaRegMoon } from "react-icons/fa6";
+import { useContext } from 'react';
+import { PageTheme } from '../contexts/ThemeContexts';
 
 function Menu() {
+
+  // use theme context
+  const { theme, toggleTheme } = useContext(PageTheme);
   return (
     
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -60,7 +67,7 @@ function Menu() {
             DetailPage
             </NavLink>
             </Nav.Link> */}
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -70,7 +77,17 @@ function Menu() {
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
+            <div className="text-dark" onClick={toggleTheme}>
+            {theme === "light" ? (
+                <IoSunny className='icon'/>
+              ) : (
+                <FaRegMoon className='icon'/>
+              )}
+              
+              
+            </div>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
